@@ -9,6 +9,7 @@ import FloatingLabel from "react-bootstrap/FloatingLabel";
 import { toast } from "react-toastify";
 import { useState, useContext } from "react";
 import UserContext from "../context/UserContext";
+import { useNavigate } from "react-router-dom";
 
 //firebase
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
@@ -17,6 +18,7 @@ const Signin = () => {
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
   const context = useContext(UserContext);
+  const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -29,8 +31,9 @@ const Signin = () => {
       .then((userCredential) => {
         // Signed in
         const user = userCredential.user;
-        console.log("Logged In user:- ", user);
+        // console.log("Logged In user:- ", user);
         toast.success("Logged In");
+        navigate("/");
 
         context.setUser({ email: user.email, uid: user.uid });
       })

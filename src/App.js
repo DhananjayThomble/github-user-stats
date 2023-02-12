@@ -27,7 +27,7 @@ const auth = getAuth(fireApp);
 
 const App = () => {
   const [user, setUser] = useState(null);
-  console.log(auth);
+  // console.log(auth);
   return (
     <BrowserRouter>
       <UserContext.Provider value={{ user, setUser }}>
