@@ -22,9 +22,9 @@ const Header = () => {
           <Nav className="me-auto">
             {context.user ? (
               // logged in
-              <>
-                <Nav.Link className="text-white">Logout</Nav.Link>
-              </>
+              <Nav.Link tag={Link} href="/logout" className="text-white">
+                Log Out
+              </Nav.Link>
             ) : (
               // logged out
               <>

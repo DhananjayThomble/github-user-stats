@@ -18,6 +18,7 @@ import PageNotFound from "./pages/PageNotFound";
 import UserContext from "./context/UserContext";
 import Footer from "./layout/Footer";
 import Header from "./layout/Header";
+import Logout from "./components/Logout";
 
 //init firebase
 const fireApp = initializeApp(firebaseConfig);
@@ -30,12 +31,13 @@ const App = () => {
   return (
     <BrowserRouter>
       <UserContext.Provider value={{ user, setUser }}>
-        <ToastContainer/>
+        <ToastContainer />
         <Header />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/signin" element={<Signin />} />
           <Route path="/signup" element={<Signup />} />
+          <Route path="/logout" element={<Logout />} />
           <Route path="*" element={<PageNotFound />} />
         </Routes>
         <Footer />
